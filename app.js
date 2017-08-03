@@ -4,8 +4,11 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 
 
-
-
+//method for grabbing a random property
+var randomProperty = function (obj) {
+    let keys = Object.keys(obj);
+    return obj[keys[ keys.length * Math.random() << 0]];
+};
 
 
 bot.on("ready", () => {
@@ -20,7 +23,7 @@ bot.on("message", (message) => {
 
     if (message.content.startsWith(options.prefix+"fact")) {
 
-        message.channel.send(fact.one);
+        message.channel.send(randomProperty(fact));
     }
 });
 
