@@ -1,0 +1,28 @@
+{
+  "name": "factbot9000",
+  "version": "1.0.0",
+  "description": "A Discord Bot with All the knowledge",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMorton09/FactBot9000.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Facts"
+  ],
+  "author": "Andrew Morton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AMorton09/FactBot9000/issues"
+  },
+  "homepage": "https://github.com/AMorton09/FactBot9000#readme",
+  "dependencies": {
+    "discord.js": "^11.1.0"
+  }
+}
