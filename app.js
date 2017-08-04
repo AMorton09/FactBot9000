@@ -52,10 +52,7 @@ bot.on("message",  (message) => {
         message.channel.send(copyPasta.arry4);
         message.channel.send(copyPasta.arry5);
     }
-    //SIXTY SECONDS IN AFRICA
-    if (message.content.startsWith(options.prefix+"afrika")){
-        message.channel.send(copyPasta.africa)
-    }
+
     //DONGER RAISER
     if (message.content.startsWith(options.prefix+"donger")){
         message.channel.send(copyPasta.donger)
@@ -72,6 +69,28 @@ bot.on("message",  (message) => {
     if (message.content.startsWith(options.prefix+"wyrus")){
         message.channel.send(copyPasta.virus)
     }
+    //wronghood
+    if (message.content.startsWith(options.prefix+"hood")){
+        message.channel.send(copyPasta.wrongHood)
+    }
+    //riot
+    if (message.content.startsWith(options.prefix+"riot")){
+        message.channel.send(copyPasta.riot);
+        message.channel.send(copyPasta.riot);
+        message.channel.send(copyPasta.riot);
+        message.channel.send(copyPasta.riot);
+        message.channel.send(copyPasta.riot);
+
+    }
+    //sad panda
+    if (message.content.startsWith(options.prefix+"sadPanda")){
+        message.channel.send(copyPasta.sadPanda);
+        message.channel.send(copyPasta.sadPanda);
+        message.channel.send(copyPasta.sadPanda);
+        message.channel.send(copyPasta.sadPanda);
+        message.channel.send(copyPasta.sadPanda);
+    }
+
 });
 
 
