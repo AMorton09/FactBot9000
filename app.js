@@ -10,7 +10,7 @@ var randomProperty = function (obj) {
     let keys = Object.keys(obj);
     return obj[keys[ keys.length * Math.random() << 0]];
 };
-
+//wait function
 function wait(ms)
 {
     var d = new Date();
@@ -80,6 +80,15 @@ bot.on("message",  (message) => {
         message.channel.send(copyPasta.riot);
         message.channel.send(copyPasta.riot);
         message.channel.send(copyPasta.riot);
+
+    }
+    //spam kappa
+    if (message.content.startsWith(options.prefix+"kappaSpam123")){
+        message.channel.send(copyPasta.kappa);
+        message.channel.send(copyPasta.kappa);
+        message.channel.send(copyPasta.kappa);
+        message.channel.send(copyPasta.kappa);
+        message.channel.send(copyPasta.kappa);
 
     }
     //sad panda
