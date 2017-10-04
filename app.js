@@ -6,18 +6,40 @@ const bot = new Discord.Client();
 
 
 //method for grabbing a random property
-var randomProperty = function (obj) {
+let randomProperty = function (obj) {
     let keys = Object.keys(obj);
     return obj[keys[ keys.length * Math.random() << 0]];
 };
-//wait function
-function wait(ms)
-{
-    var d = new Date();
-    var d2 = null;
-    do { d2 = new Date(); }
-    while(d2-d < ms);
-}
+
+
+let purgeMessages = (message) =>{
+    message.channel.fetchMessages({limit: 100}).then(messages =>{
+        let msgArr = messages.array();
+        let numMsg = msgArr.length;
+
+        for(let i = 0; i < numMsg; i++) {
+            msgArr[i].delete()
+                .then(function() {
+                    count = count + 1;
+                    if(count >= 100) {
+                        purgeMessages();
+                    }
+                })
+                .catch(function() {
+                    count = count + 1;
+                    if(count >= 100) {
+                        purgeMessages();
+                    }
+                })
+        }
+    })
+        .catch(function(err) {
+            console.log('SOMETHING WENT HORRIBLY WRONG!!!!!!!');
+            console.log(err);
+        });
+};
+
+
 
 
 bot.on("ready", () => {
@@ -28,16 +50,19 @@ bot.on("message",  (message) => {
     if (!message.content.startsWith(options.prefix)) return;
     if (message.content.startsWith(options.prefix+"test")) {
         message.channel.send("i Work!");
-
-}
-    //FLUSH CHAT
-    if (message.content.startsWith(options.prefix+"flush")){
-        for ( i=0;i<25;i++ ){
-            if (i%5 == 0 ) wait(500);
-            message.channel.send("WHIRRRR");
-
-        }
     }
+
+    //Purge messages for last 14 days
+    if (message.content.startsWith(options.prefix+"purgeRecent")){
+        message.channel.bulkDelete(100,true);
+    }
+
+    //Complete message purge
+    if (message.content.startsWith(options.prefix+"purge")){
+        purgeMessages(message);
+    }
+
+
     //RANDOM FFACTS
     if (message.content.startsWith(options.prefix+"fact")) {
 
