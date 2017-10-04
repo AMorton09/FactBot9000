@@ -13,6 +13,7 @@ let randomProperty = function (obj) {
 
 
 let purgeMessages = (message) =>{
+    let count = 0;
     message.channel.fetchMessages({limit: 100}).then(messages =>{
         let msgArr = messages.array();
         let numMsg = msgArr.length;
