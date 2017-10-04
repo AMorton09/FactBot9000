@@ -21,13 +21,13 @@ let purgeMessages = (message) =>{
         for(let i = 0; i < numMsg; i++) {
             msgArr[i].delete()
                 .then(function() {
-                    count = count + 1;
+                    count++;
                     if(count >= 100) {
                         purgeMessages();
                     }
                 })
                 .catch(function() {
-                    count = count + 1;
+                    count++;
                     if(count >= 100) {
                         purgeMessages();
                     }
